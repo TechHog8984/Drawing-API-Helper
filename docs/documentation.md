@@ -11,4 +11,4 @@
 > 
 > - ### Class:CreateObject{type = <string> (ObjectType), ...}
 >    - ### Returns a new Object
-     - ### ... represents normal Drawing object properties. see [Object Types]()
+>    - ### ... represents normal Drawing object properties. see [Object Types]()
