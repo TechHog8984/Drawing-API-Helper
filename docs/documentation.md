@@ -3,6 +3,11 @@
 > ## Object
 > - ### a table that represents an on-screen object.
 > - ### works just as a normal Drawing object would.
+>   - Object Types:
+>     - Gui
+>     - Frame
+>     - TextButton
+>     - TextLabel
 
 <br>
 </br>
