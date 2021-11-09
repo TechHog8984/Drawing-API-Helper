@@ -3,7 +3,7 @@
 > ## Object
 > - ### a table that represents an on-screen object.
 > - ### works just as a normal drawing object would.
-
+>
 > ## Class
 > 
 > - ### Class:CreateObject{type = <string> (ObjectType), ...}
