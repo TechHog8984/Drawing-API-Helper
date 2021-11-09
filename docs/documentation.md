@@ -15,5 +15,10 @@
 > ## Class
 > 
 > - ### Class:CreateObject{type = <string> (ObjectType), ...}
+>    - ### See [Object Types](https://github.com/TechHog8984/Drawing-API-Helper/blob/main/docs/documentation.md#object-types) for a list of object types
 >    - ### Returns a new Object
->    - ### ... represents normal Drawing object properties. see [Object Types]()
+>    - ### ... represents normal Drawing object properties.
+>    - ### example:
+>     ```lua
+>         Class:CreateObject{type = 'Frame', Transparency = .5}
+>     ```
