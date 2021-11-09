@@ -19,6 +19,6 @@
 >    - ### Returns a new Object
 >    - ### ... represents normal Drawing object properties.
 >    - ### example:
->     ```lua
->         Class:CreateObject{type = 'Frame', Transparency = .5}
->     ```
+>   ```lua
+>       Class:CreateObject{type = 'Frame', Transparency = .5}
+>   ```
