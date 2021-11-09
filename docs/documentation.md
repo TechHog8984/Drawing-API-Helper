@@ -1,4 +1,5 @@
 # Docs
 
 > ## Class
-> - ### hi
+> - ### Class:CreateObject{type = <string> (ObjectType), ...}
+  > - ### Returns a new Object
