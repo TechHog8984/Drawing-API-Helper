@@ -2,4 +2,4 @@
 
 > ## Class
 > - ### Class:CreateObject{type = <string> (ObjectType), ...}
-  > - ### Returns a new Object
+>    - ### Returns a new Object
