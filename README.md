@@ -4,5 +4,5 @@
 ### With my project Lines-Lib, I often find it quite tedious to handle objects.
 ### This is why I decided to make this helper.
 
-## You can find this script [here](script/main.lua)
-## And the docs [here](docs/documentation.md)
+- You can find this script [here](script/main.lua)
+- And the docs [here](docs/documentation.md)
