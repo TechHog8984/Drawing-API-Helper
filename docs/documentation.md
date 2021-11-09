@@ -1,7 +1,8 @@
 # Docs
 
 > ## Object
-> - ### a table that represents an object.
+> - ### a table that represents an on-screen object.
+> - ### works just as a normal drawing object would.
 
 > ## Class
 > 
