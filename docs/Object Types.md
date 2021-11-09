@@ -1,7 +1,7 @@
 # Object-Types
 
 > Gui
-> - <type> PropertyName
+> - \<type\> PropertyName
 
 > Frame
-> - <type> PropertyName
+> - \<type\> PropertyName
