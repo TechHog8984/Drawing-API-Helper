@@ -1,4 +1,4 @@
 # Docs
 
-## > Class
+> ## Class
 > - hi
