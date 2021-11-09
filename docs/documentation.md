@@ -10,7 +10,7 @@
 > ## Class
 > 
 > - ### Class:CreateObject{type = \<string\> (ObjectType), ...}
->    - ### See [Object Types](Object Types.md) for a list of object types
+>    - ### See [Object Types](Object%20Types.md) for a list of object types
 >    - ### Returns a new Object
 >    - ### ... represents normal Drawing object properties.
 >    - ### example:
