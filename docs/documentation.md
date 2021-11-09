@@ -15,7 +15,7 @@
 > ## Class
 > 
 > - ### Class:CreateObject{type = <string> (ObjectType), ...}
->    - ### See [Object Types](https://github.com/TechHog8984/Drawing-API-Helper/blob/main/docs/documentation.md#object-types) for a list of object types
+>    - ### See [Object Types](#object-types) for a list of object types
 >    - ### Returns a new Object
 >    - ### ... represents normal Drawing object properties.
 >    - ### example:
