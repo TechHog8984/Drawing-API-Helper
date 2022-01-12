@@ -104,3 +104,5 @@ function Helper:CreateRectangle(info)
 
 	return Rectangle
 end
+
+return Helper
