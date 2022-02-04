@@ -23,7 +23,7 @@
 >     - #### Visible \<boolean>:
 >         - #### Determines whether the object is visible or not (whether you can see it or not, true being you can see the object and false being you cannot.)
 >     - #### ZIndex \<number>:
->         - #### Determines the order of Objects being rendered (a higher ZIndex means an Object will render ABOVE / OVER one with a lower ZIndex and vice versa.)
+>         - #### Determines the order the Object being rendered (a higher ZIndex means an Object will render ABOVE / OVER one with a lower ZIndex and vice versa.)
 >     - #### Transparency \<number>:
 >         - #### Determines the transparency of the Object ( a transparency of 1 means fully visible, .5 half visible, and 0 invisible)
 >     - #### Color \<Color3>:
