@@ -12,7 +12,8 @@
 >         ```
 
 > ## Object
-> ### This is returned by any of the Helper:Create functions, as described above [here](#helpercreateobjectnameproperties)
+> ### This is returned by any of the Helper:Create functions, as described above [here](#helpercreateobjectnameproperties).
+> ### Events are also Objects.
 > - ### Properties:
 >   - ### This is a list of all default Object Properties:
 >     - #### \_\_exists \<bool>:
