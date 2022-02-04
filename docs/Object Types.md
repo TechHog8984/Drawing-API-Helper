@@ -19,7 +19,7 @@
 > - ### \<Event\> (READONLY) MouseButton1Up
 > - ### \<Event\> (READONLY) MouseButton1Click
 
-<br>
+<br><br>
   
 > ## Line
 > - ### \<string\> Name
@@ -39,7 +39,7 @@
 > - ### \<Event\> (READONLY) MouseButton1Up
 > - ### \<Event\> (READONLY) MouseButton1Click
 
-<p>
+<br><br>
 
 > ## Text
 > - ### \<string\> Name
