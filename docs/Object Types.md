@@ -18,7 +18,9 @@
 > - ### \<Event\> (READONLY) MouseButton1Down
 > - ### \<Event\> (READONLY) MouseButton1Up
 > - ### \<Event\> (READONLY) MouseButton1Click
-<br>
+
+<p>
+  
 > ## Line
 > - ### \<string\> Name
 > - ### \<string\> (READONLY) ClassName
@@ -36,7 +38,9 @@
 > - ### \<Event\> (READONLY) MouseButton1Down
 > - ### \<Event\> (READONLY) MouseButton1Up
 > - ### \<Event\> (READONLY) MouseButton1Click
-<br>
+
+<p>
+
 > ## Text
 > - ### \<string\> Name
 > - ### \<string\> (READONLY) ClassName
