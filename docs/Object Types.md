@@ -11,7 +11,7 @@
 > - ### \<Vector2\> Size
 > - ### \<Vector2\> Position
 > - ### \<boolean\> Filled
-> 
+<br>
 > - ### \<Event\> (READONLY) Changed
 > - ### \<Event\> (READONLY) MouseEnter
 > - ### \<Event\> (READONLY) MouseLeave
@@ -31,7 +31,7 @@
 > - ### \<number\> Thickness
 > - ### \<Vector2\> From
 > - ### \<Vector2\> To
-> 
+<br>
 > - ### \<Event\> (READONLY) Changed
 > - ### \<Event\> (READONLY) MouseEnter
 > - ### \<Event\> (READONLY) MouseLeave
@@ -48,7 +48,7 @@
 > - ### \<number\> ZIndex
 > - ### \<number\> Transparency
 > - ### \<Color3\> Color
-
+<br>
 > - ### \<Event\> (READONLY) Changed
 > - ### \<Event\> (READONLY) MouseEnter
 > - ### \<Event\> (READONLY) MouseLeave
