@@ -14,7 +14,10 @@
 > ## Object
 > ### This is returned by any of the Helper:Create functions, as described above [here](#helpercreateobjectnameproperties)
 > - ### Properties:
->   - ### This is a list of all default Object properties:
+>   - ### This is a list of all default Object Properties:
+>     - #### \_\_exists \<bool>:
+>         - #### Must be accessed throught rawget.
+>         - #### Becomes false whenever you destroy an Object.
 >     - #### Name \<string>:
 >         - #### Determines what should be returned when you tostring the Object.
 >     - #### ClassName \<string>:
@@ -29,3 +32,13 @@
 >     - #### Color \<Color3>:
 >         - #### Is a property for all Objects EXCEPT FOR IMAGE.
 >
+>
+>
+> - ### Events:
+>   - ### This is a list of all default Object Events:
+>   - ### These Events can NOT be destroyed.
+>     - #### Changed:
+>       - #### Fired whenever a property of the Object is changed.
+>       - #### Returns the property name and the new value of the property.
+>     - #### MouseEnter:
+>       - #### Fired
