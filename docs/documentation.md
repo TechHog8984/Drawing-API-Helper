@@ -2,7 +2,7 @@
 
 
 > ## Helper
-> ### This is returned when you loadstring [the main script](/script/latest)
+> ### This is returned by [the main script](/script/latest)
 > - ### Functions:
 >     - ### Helper:Create\[OBJECTNAME](Properties)
 >     - ### Replace OBJECTNAME with an object types from the [Object Types](Object%20Types.md) list.
@@ -12,7 +12,7 @@
 >         ```
 
 > ## Object
-> ### This is returned when you run Helper:Create\[OBJECTNAME], as described above [here](#helpercreateobjectnameproperties)
+> ### This is returned by any of the Helper:Create functions, as described above [here](#helpercreateobjectnameproperties)
 > - ### Properties:
 >   - ### This is a list of all default Object properties:
 >     - #### Name \<string>:
