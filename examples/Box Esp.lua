@@ -1,15 +1,13 @@
-local Helper = loadstring(game:HttpGet'https://raw.githubusercontent.com/TechHog8984/Drawing-API-Helper/main/script/v0.3.lua')()
+local Helper = loadstring(game:HttpGet'https://raw.githubusercontent.com/TechHog8984/Drawing-API-Helper/main/script/v0.4.lua')()
 local Players = game:GetService'Players'
 
 local PlayerObjects = {}
 local function PlayerAdded(Player)
-	local PlayerBox = Helper:CreateQuad{Name = Player.Name .. '-Box',
-		Thickness = 10,
-		Filled = false,
-	}
-
 	PlayerObjects[Player] = {
-		Box = PlayerBox
+		Box = Helper:CreateQuad{Name = Player.Name .. '-Box',
+			Thickness = 5,
+			Filled = false,
+		}
 	}
 end
 local function PlayerRemoving(Player)
@@ -72,7 +70,7 @@ game:GetService'RunService'.RenderStepped:Connect(function()
 					local BottomRight, BottomRightVis = Camera:WorldToViewportPoint(Position + Vector3.new(0, -3) + FlatXV)
 					Objects.Box.BottomRight = Vector2.new(BottomRight.X, BottomRight.Y)
 
-					Objects.Box.Visible = TopLeftVis and TopRightVis and BottomLeftVis and BottomRightVis
+					Objects.Box.Visible = TopLeftVis or TopRightVis or BottomLeftVis or BottomRightVis
 				end
 			else
 				PlayerRemoving(Player)
