@@ -454,7 +454,9 @@ local function IsHovering(Object, MousePos)
 		local BottomRight = Object.BottomRight
 		local BottomLeft = Object.BottomLeft
 
-		return (MousePos.X >= TopLeft.X or MousePos.X >= BottomLeft.X) and (MousePos.X <= TopRight.X or MousePos.X <= BottomRight.X) and (MousePos.Y <= BottomRight.Y or MousePos.Y <= BottomLeft.Y) and (MousePos.Y >= TopRight.Y or MousePos.Y >= TopLeft.Y)
+		if MousePos and TopRight and TopLeft and BottomRight and BottomLeft then
+			return (MousePos.X >= TopLeft.X or MousePos.X >= BottomLeft.X) and (MousePos.X <= TopRight.X or MousePos.X <= BottomRight.X) and (MousePos.Y <= BottomRight.Y or MousePos.Y <= BottomLeft.Y) and (MousePos.Y >= TopRight.Y or MousePos.Y >= TopLeft.Y)
+		end
 	end
 	return false;
 end
@@ -537,5 +539,6 @@ UIS.InputEnded:Connect(function(Input)
 		end
 	end
 end)
+
 
 return Helper
