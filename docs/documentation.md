@@ -27,5 +27,5 @@
 >     - #### Transparency \<number>:
 >         - #### Determines the transparency of the Object ( a transparency of 1 means fully visible, .5 half visible, and 0 invisible)
 >     - #### Color \<Color3>:
->         - #### Is a property for all Objects EXCEPT THE IMAGE.
+>         - #### Is a property for all Objects EXCEPT FOR IMAGE.
 >
