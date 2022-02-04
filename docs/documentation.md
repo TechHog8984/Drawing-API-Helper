@@ -7,6 +7,6 @@
 >     - ### Helper:Create\[OBJECTNAME](Properties)
 >     - ### Replace OBJECTNAME with an object types from the [Object Types](Object%20Types.md) list.
 >     - ### Example:
->     ```lua
+>         ```lua
 >         local Rectangle = Helper:CreateRectangle{Name = 'Rectangle', Position = Vector2.new(960, 540)};
->     ```
+>         ```
