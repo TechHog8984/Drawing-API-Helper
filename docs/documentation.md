@@ -32,13 +32,20 @@
 >     - #### Color \<Color3>:
 >         - #### Is a property for all Objects EXCEPT FOR IMAGE.
 >
->
->
 > - ### Events:
 >   - ### This is a list of all default Object Events:
 >   - ### These Events can NOT be destroyed.
 >     - #### Changed:
 >       - #### Fired whenever a property of the Object is changed.
 >       - #### Returns the property name and the new value of the property.
+>     - #### Note that the below mouse events only work for Rectangles and Quad and that the Quad detection is very bad.
 >     - #### MouseEnter:
->       - #### Fired
+>       - #### Fired whenever the mouse hovers over the Object.
+>     - #### MouseLeave:
+>       - #### Fired whenever the mouse is no longer hovering over the Object.
+>     - #### MouseButton1Down:
+>       - #### Fired whenever the mouse is hovering over the Object and the MouseButton1 (left click) is held down.
+>     - #### MouseButton1Up:
+>       - #### Fired whenever the MouseButton1 (left click) is released and the click which was released was clicking on the Object.
+>     - #### MouseButton1Click:
+>       - #### Fired whenever the MouseButton1 (left click) clicks on the Object.
