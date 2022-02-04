@@ -12,4 +12,4 @@
 >         ```
 
 > ## Object
-> ### This is returned when you run Helper:Create\[OBJECTNAME], as described above [here](#)
+> ### This is returned when you run Helper:Create\[OBJECTNAME], as described above [here](#helpercreateobjectnameproperties)
