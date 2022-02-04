@@ -290,22 +290,42 @@ function Helper:CreateObject(info)
 	return Object
 end
 
-local EventConnect = function(Event, Con)
-	if Con and type(Con) == 'function' then
+local function ConnectionDisconnect(Connection)
+	if Connection and type(Connection) == 'table' and rawget(Connection, '__type') == 'connection' then
+		if Connection.Event and Connection.Event.Connections and table.find(Connection.Event.Connections, Connection) then
+			Connection.Connected = false
+			table.remove(Connection.Event.Connections, (table.find(Connection.Event.Connections, Connection)))
+		else
+			return error('Failed to get Connection.Event / Connection.Event doesn\'t have Connections table / Connection isn\'t found in Connections table.', 2)
+		end
+	else
+		return error('Expected ":" when calling Disconnect, not "." (first arg was not a Connection.', 2)
+	end
+end
+local EventConnect = function(Event, Func)
+	if Func and type(Func) == 'function' then
 		if Event and type(Event) == 'table' and rawget(Event, '__type') == 'event' then
 			if rawget(Event, '__exists') then
 				local Connections = Event.Connections
 				if Connections then
-					table.insert(Connections, Con)
+					local Connection = {
+						__type = 'connection',
+						Func = Func,
+						Disconnect = ConnectionDisconnect,
+						Event = Event,
+						Connected = true,
+					}
+					table.insert(Connections, Connection)
+					return Connection
 				end
 			else
 				return error('Attempt to connect an Event which no longer exists.', 2)
 			end
 		else
-			return error('Expected ":" when calling Connect, not "." (first arg was not an Event)', 2)
+			return error('Expected ":" when calling Connect, not "." (first arg was not an Event.)', 2)
 		end
 	else
-		return error('Expected function for arg 2 when calling Connect, got ' .. tostring(Con), 2)
+		return error('Expected function for arg 2 when calling Connect, got ' .. tostring(Func), 2)
 	end
 end
 local EventFire = function(Event, ...)
@@ -315,9 +335,11 @@ local EventFire = function(Event, ...)
 			local Connections = Event.Connections
 			if Connections then
 				for I, Con in next, Connections do
-					local Suc, Err = pcall(task.spawn, Con, table.unpack(Args))
-					if not Suc and Err then
-						error('From Event.Fire: ' .. tostring(Err), 3)
+					if Con and Con.Func and Con.Connected then
+						local Suc, Err = pcall(task.spawn, Con.Func, table.unpack(Args))
+						if not Suc and Err then
+							error('From Event.Fire: ' .. tostring(Err), 3)
+						end
 					end
 				end
 			end
