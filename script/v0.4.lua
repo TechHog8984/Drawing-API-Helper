@@ -264,18 +264,26 @@ Helper.ValidateType = ValidateType
 
 local ObjectDestroy = function(Object)
 	if Object and type(Object) == 'table' then
-		rawset(Object, '__exists', false)
-		local Drawing = rawget(Object, '__drawing')
-		if Drawing then
-			Drawing:Remove()
-			rawset(Object, '__drawing', nil)
+		if rawget(Object, '__candestroy') then
+			rawset(Object, '__exists', false)
+			local Drawing = rawget(Object, '__drawing')
+			if Drawing then
+				Drawing:Remove()
+				rawset(Object, '__drawing', nil)
+			end
+		else
+			return error('Attempt to destroy an object which cannot be destroyed.', 2)
 		end
 	else
 		return error('Expected ":" when calling Destroy, not "." (first arg was not an Object)', 2)
 	end
 end
 function Helper:CreateObject(info)
-	local Object = {__exists = true}
+	local Object = {__exists = true, __candestroy = true}
+
+	if type(info.CanDestroy) == 'boolean' then
+		Object.__candestroy = info.CanDestroy
+	end
 
 	Object.Destroy = ObjectDestroy
 
@@ -321,7 +329,7 @@ local EventFire = function(Event, ...)
 	end
 end
 function Helper:CreateEvent(info)
-	local Event = Helper:CreateObject{}
+	local Event = Helper:CreateObject{CanDestroy = info.CanDestroy}
 
 	Event.__type = 'event'
 	Event.ClassName = 'Event'
@@ -376,12 +384,12 @@ for Type, DrawingType in next, SupportedObjects do
 			end
 		end
 
-		Holder.Changed = Helper:CreateEvent{Name = tostring(Object) .. '-Changed'}
-		Holder.MouseEnter = Helper:CreateEvent{Name = tostring(Object) .. '-MouseEnter'}
-		Holder.MouseLeave = Helper:CreateEvent{Name = tostring(Object) .. '-MouseLeave'}
-		Holder.MouseButton1Down = Helper:CreateEvent{Name = tostring(Object) .. '-MouseButton1Down'}
-		Holder.MouseButton1Up = Helper:CreateEvent{Name = tostring(Object) .. '-MouseButton1Up'}
-		Holder.MouseButton1Click = Helper:CreateEvent{Name = tostring(Object) .. '-MouseButton1Click'}
+		Holder.Changed = Helper:CreateEvent{CanDestroy = false, Name = tostring(Object) .. '-Changed'}
+		Holder.MouseEnter = Helper:CreateEvent{CanDestroy = false, Name = tostring(Object) .. '-MouseEnter'}
+		Holder.MouseLeave = Helper:CreateEvent{CanDestroy = false, Name = tostring(Object) .. '-MouseLeave'}
+		Holder.MouseButton1Down = Helper:CreateEvent{CanDestroy = false, Name = tostring(Object) .. '-MouseButton1Down'}
+		Holder.MouseButton1Up = Helper:CreateEvent{CanDestroy = false, Name = tostring(Object) .. '-MouseButton1Up'}
+		Holder.MouseButton1Click = Helper:CreateEvent{CanDestroy = false, Name = tostring(Object) .. '-MouseButton1Click'}
 
 		Object.__self = Holder
 		Object.__drawing = Drawing
@@ -446,7 +454,7 @@ local function IsHovering(Object, MousePos)
 	local ObjectPos = Object.Position
 	local DrawingSize = Object.Size or (Object.Radius and {X = Object.Radius, Y = Object.Radius})
 
-	if ObjectPos and DrawingSize then
+	if ObjectPos and DrawingSize and typeof(DrawingSize) == 'Vector2' then
 		return MousePos.X >= ObjectPos.X and MousePos.X <= ObjectPos.X + DrawingSize.X and MousePos.Y >= ObjectPos.Y and MousePos.Y <= ObjectPos.Y + DrawingSize.Y
 	elseif Object.ClassName == 'Quad' then
 		local TopRight = Object.TopRight
@@ -539,6 +547,5 @@ UIS.InputEnded:Connect(function(Input)
 		end
 	end
 end)
-
 
 return Helper
