@@ -1,6 +1,6 @@
 # Object-Types
 
-> Rectangle
+## > Rectangle
 > - \<string\> Name
 > - \<string\> (READONLY) ClassName
 > - \<boolean\> Visible
@@ -19,7 +19,7 @@
 > - \<Event\> (READONLY) MouseButton1Up
 > - \<Event\> (READONLY) MouseButton1Click
 
-> Line
+## > Line
 > - \<string\> Name
 > - \<string\> (READONLY) ClassName
 > - \<boolean\> Visible
@@ -37,7 +37,7 @@
 > - \<Event\> (READONLY) MouseButton1Up
 > - \<Event\> (READONLY) MouseButton1Click
 
-> Text
+## > Text
 > - \<string\> Name
 > - \<string\> (READONLY) ClassName
 > - \<boolean\> Visible
