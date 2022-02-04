@@ -82,6 +82,7 @@
 > - ### \<Drawing.Font, number\> Font
 
 
+
 > - ### \<Event\> (READONLY) Changed
 > - ### \<Event\> (READONLY) MouseEnter
 > - ### \<Event\> (READONLY) MouseLeave
@@ -95,11 +96,77 @@
 > - ### \<boolean\> Visible
 > - ### \<number\> ZIndex
 > - ### \<number\> Transparency
-> - ### \<Color3\> Color
 > - ### \<string\> Data
 > - ### \<Vector2\> Size
 > - ### \<Vector2\> Position
 > - ### \<number\> Rounding
+
+
+
+> - ### \<Event\> (READONLY) Changed
+> - ### \<Event\> (READONLY) MouseEnter
+> - ### \<Event\> (READONLY) MouseLeave
+> - ### \<Event\> (READONLY) MouseButton1Down
+> - ### \<Event\> (READONLY) MouseButton1Up
+> - ### \<Event\> (READONLY) MouseButton1Click
+
+> ## Circle
+> - ### \<string\> Name
+> - ### \<string\> (READONLY) ClassName
+> - ### \<boolean\> Visible
+> - ### \<number\> ZIndex
+> - ### \<number\> Transparency
+> - ### \<Color3\> Color
+> - ### \<number\> Thickness
+> - ### \<number\> NumSides
+> - ### \<number\> Radius
+> - ### \<boolean\> Filled
+> - ### \<Vector2\> Position
+
+
+
+> - ### \<Event\> (READONLY) Changed
+> - ### \<Event\> (READONLY) MouseEnter
+> - ### \<Event\> (READONLY) MouseLeave
+> - ### \<Event\> (READONLY) MouseButton1Down
+> - ### \<Event\> (READONLY) MouseButton1Up
+> - ### \<Event\> (READONLY) MouseButton1Click
+
+> ## Quad
+> - ### \<string\> Name
+> - ### \<string\> (READONLY) ClassName
+> - ### \<boolean\> Visible
+> - ### \<number\> ZIndex
+> - ### \<number\> Transparency
+> - ### \<Color3\> Color
+> - ### \<number\> Thickness
+> - ### \<Vector2\> PointA / TopRight
+> - ### \<Vector2\> PointB / TopLeft
+> - ### \<Vector2\> PointC / BottomLeft
+> - ### \<Vector2\> PointD / BottomRight
+> - ### \<boolean\> Filled
+
+
+> - ### \<Event\> (READONLY) Changed
+> - ### \<Event\> (READONLY) MouseEnter
+> - ### \<Event\> (READONLY) MouseLeave
+> - ### \<Event\> (READONLY) MouseButton1Down
+> - ### \<Event\> (READONLY) MouseButton1Up
+> - ### \<Event\> (READONLY) MouseButton1Click
+
+> ## Triangle
+> - ### \<string\> Name
+> - ### \<string\> (READONLY) ClassName
+> - ### \<boolean\> Visible
+> - ### \<number\> ZIndex
+> - ### \<number\> Transparency
+> - ### \<Color3\> Color
+> - ### \<Vector2\> PointA 
+> - ### \<Vector2\> PointB
+> - ### \<Vector2\> PointC
+> - ### \<boolean\> Filled
+
+
 
 > - ### \<Event\> (READONLY) Changed
 > - ### \<Event\> (READONLY) MouseEnter
