@@ -10,3 +10,6 @@
 >         ```lua
 >         local Rectangle = Helper:CreateRectangle{Name = 'Rectangle', Position = Vector2.new(960, 540)};
 >         ```
+
+> ## Object
+> ### This is returned when you run Helper:Create\[OBJECTNAME], as described above [here](#)
