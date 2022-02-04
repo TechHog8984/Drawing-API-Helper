@@ -52,7 +52,14 @@
 > - ### \<number\> ZIndex
 > - ### \<number\> Transparency
 > - ### \<Color3\> Color
-
+> - ### \<string\> Text
+> - ### \<number\> Size
+> - ### \<boolean\> Center
+> - ### \<boolean\> Outline
+> - ### \<Color3\> OutlineColor
+> - ### \<Vector2\> Position
+> - ### \<Vector2\> TextBounds
+> - ### \<Drawing.Font, number\> Font
 
 
 > - ### \<Event\> (READONLY) Changed
