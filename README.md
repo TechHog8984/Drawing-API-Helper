@@ -4,5 +4,5 @@
 ### With my project Lines-Lib, I often find it quite tedious to handle objects.
 ### This is why I decided to make this helper.
 
-- #### You can find this script [here](script/main.lua) and the raw [here](https://raw.githubusercontent.com/TechHog8984/Drawing-API-Helper/main/script/main.lua)
+- #### You can find this script [here](script/latest) and the raw [here](https://raw.githubusercontent.com/TechHog8984/Drawing-API-Helper/main/script/latest)
 - #### And the docs [here](docs/documentation.md)
