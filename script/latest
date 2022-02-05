@@ -1,1 +1,1 @@
-return loadstring(game:HttpGet'https://raw.githubusercontent.com/TechHog8984/Drawing-API-Helper/main/script/v0.5.lua')()
+return loadstring(game:HttpGet'https://raw.githubusercontent.com/TechHog8984/Drawing-API-Helper/main/script/v0.6.lua')()
