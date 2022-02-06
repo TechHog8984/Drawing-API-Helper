@@ -17,12 +17,12 @@
 >   - ### This is a list of all default Object Properties:
 >     - #### \_\_exists \<bool>:
 >         - #### Must be accessed throught rawget.
->         - #### Becomes false whenever you destroy an Object.
+>         - #### Becomes false whenever you destroy the Object.
 >     - #### Name \<string>:
 >         - #### Determines what should be returned when you tostring the Object.
 >     - #### ClassName \<string>:
 >         - #### Determines the default Name of an object, if nothing is provided.
->         - #### Is READONLY, meaning that you cannot change this (although if you really want to, you can just view the source and use rawget & rawset.)
+>         - #### Is READONLY, meaning that you cannot change this (although for advanced users wanting to make use this to make custom objects, you can view the source code and use rawget and rawset.)
 >     - #### Visible \<boolean>:
 >         - #### Determines whether the object is visible or not (whether you can see it or not, true being you can see the object and false being you cannot.)
 >     - #### ZIndex \<number>:
@@ -42,10 +42,17 @@
 >     - #### MouseEnter:
 >       - #### Fired whenever the mouse hovers over the Object.
 >     - #### MouseLeave:
->       - #### Fired whenever the mouse is no longer hovering over the Object.
+>       - #### Fired whenever the mouse stops hovering over the Object.
 >     - #### MouseButton1Down:
->       - #### Fired whenever the mouse is hovering over the Object and the MouseButton1 (left click) is held down.
+>       - #### Fired whenever the MouseButton1 (left click) is pressed down on the Object.
 >     - #### MouseButton1Up:
->       - #### Fired whenever the MouseButton1 (left click) is released and the click which was released was clicking on the Object.
+>       - #### Fired whenever a MouseButton1 (left click) click is released on the Object.
 >     - #### MouseButton1Click:
 >       - #### Fired whenever the MouseButton1 (left click) clicks on the Object.
+>       
+>     - #### MouseButton2Down:
+>       - #### Fired whenever the MouseButton2 (right click) is pressed down on the Object.
+>     - #### MouseButton2Up:
+>       - #### Fired whenever a MouseButton2 (right click) click is released on the Object.
+>     - #### MouseButton2Click:
+>       - #### Fired whenever the MouseButton2 (right click) clicks on the Object.
