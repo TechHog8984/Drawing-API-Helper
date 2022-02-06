@@ -34,6 +34,7 @@
 >
 > - ### Events:
 >   - ### This is a list of all default Object Events:
+>   - ### All Events are created from [this](https://github.com/TechHog8984/Event-Manager) script.
 >     - #### Changed:
 >       - #### Fired whenever a property of the Object is changed.
 >       - #### Returns the property name and the new value of the property.
