@@ -43,15 +43,15 @@ local ExpectedObjectProperties = {
 
 	Descendants = 'table',
 
-	MouseEnter = 'event',
-	MouseLeave = 'event',
-	MouseButton1Down = 'event',
-	MouseButton1Up = 'event',
-	MouseButton1Click = 'event',
-	MouseButton2Down = 'event',
-	MouseButton2Up = 'event',
-	MouseButton2Click = 'event',
-	Changed = 'event',
+	MouseEnter = 'Event',
+	MouseLeave = 'Event',
+	MouseButton1Down = 'Event',
+	MouseButton1Up = 'Event',
+	MouseButton1Click = 'Event',
+	MouseButton2Down = 'Event',
+	MouseButton2Up = 'Event',
+	MouseButton2Click = 'Event',
+	Changed = 'Event',
 }
 
 Helper.ExpectedDrawingProperties = ExpectedDrawingProperties
@@ -291,7 +291,7 @@ local function IDtype(Value)
 	local typeof = typeof(Value)
 
 	--will have support for Drawing.Fonts and other types
-	return (typeof == 'table' and rawget(Value, '__type')) or typeof
+	return (typeof == 'table' and rawget(Value, '__type')) or (typeof == 'userdata' and Value.__type) or typeof
 end
 local function ValidateType(Value, Expected)
 	local type = IDtype(Value):lower()
@@ -459,9 +459,11 @@ for Type, DrawingType in next, SupportedObjects do
 									local YAlignment = Object.TextYAlignment
 
 									TextObject.Position = Vector2.new((XAlignment == 'Left' and LeftX) or (XAlignment == 'Center' and CenterX) or (XAlignment == 'Right' and RightX), (YAlignment == 'Top' and TopY) or (YAlignment == 'Center' and CenterY) or (YAlignment == 'Bottom' and BottomY))
-								elseif not SetTextProperty and DefaultDrawingProperties[Index] or Helper.Properties.Expected.Text.Drawing[Index] then
-									print(Index, Value)
-									TextObject[Index] = Value
+								elseif not SetTextProperty and not ExpectedObjectProperties['Text' .. Index] and ExpectedDrawingProperties[Index] or ExpectedObjectProperties[Index] or Helper.Properties.Expected.Text.Drawing[Index] then
+									local Expected = ExpectedDrawingProperties[Index] or ExpectedObjectProperties[Index] or Helper.Properties.Expected.Text.Drawing[Index];
+									if ValidateType(Value, Expected) then
+										TextObject[Index] = Value
+									end
 								end
 							end
 
@@ -483,6 +485,13 @@ for Type, DrawingType in next, SupportedObjects do
 			Object[Index] = Value
 		end
 
+		if rawget(Object, '__text') then
+			for Prop, Value in next, tablecombine(Helper.Properties.Default.Text.Drawing, Helper.Properties.Default.Text.Object) do
+				if not table.find(DefaultReadOnlyProperties, Prop) and not table.find(Helper.Properties.ReadOnly.Text or {}, Prop) then
+					rawget(Object, '__text')[Prop] = Value
+				end
+			end
+		end
 
 		table.insert(Helper.Objects, Object)
 
