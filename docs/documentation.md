@@ -5,11 +5,11 @@
 > ### This is returned by [the main script](/script/latest)
 > - ### Functions:
 >     - ### Helper:Create\[OBJECTNAME](Properties)
->     - ### Replace OBJECTNAME with an object types from the [Object Types](Object%20Types.md) list.
->     - ### Example:
->         ```lua
->         local Rectangle = Helper:CreateRectangle{Name = 'Rectangle', Position = Vector2.new(960, 540)};
->         ```
+>         - ### Replace OBJECTNAME with an object types from the [Object Types](Object%20Types.md) list.
+>         - ### Example:
+>             ```lua
+>             local Rectangle = Helper:CreateRectangle{Name = 'Rectangle', Position = Vector2.new(960, 540)};
+>             ```
 
 > ## Object
 > ### This is returned by any of the Helper:Create functions, as described above [here](#helpercreateobjectnameproperties).
