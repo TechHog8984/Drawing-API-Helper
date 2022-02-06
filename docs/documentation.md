@@ -13,7 +13,6 @@
 
 > ## Object
 > ### This is returned by any of the Helper:Create functions, as described above [here](#helpercreateobjectnameproperties).
-> ### Events are also Objects.
 > - ### Properties:
 >   - ### This is a list of all default Object Properties:
 >     - #### \_\_exists \<bool>:
@@ -35,7 +34,6 @@
 >
 > - ### Events:
 >   - ### This is a list of all default Object Events:
->   - ### These Events can NOT be destroyed.
 >     - #### Changed:
 >       - #### Fired whenever a property of the Object is changed.
 >       - #### Returns the property name and the new value of the property.
