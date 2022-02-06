@@ -1,3 +1,5 @@
+local CreateEvent = assert(loadstring(game:HttpGet'https://raw.githubusercontent.com/TechHog8984/Event-Manager/main/src.lua')(), 'Failed to get CreateEvent function.')
+
 local function tableadd(...)
 	local Result = {}
 
@@ -338,83 +340,6 @@ function Helper:CreateObject(info)
 	return Object
 end
 
-local function ConnectionDisconnect(Connection)
-	if Connection and type(Connection) == 'table' and rawget(Connection, '__type') == 'connection' then
-		if Connection.Event and Connection.Event.Connections and table.find(Connection.Event.Connections, Connection) then
-			Connection.Connected = false
-			table.remove(Connection.Event.Connections, (table.find(Connection.Event.Connections, Connection)))
-		else
-			return error('Failed to get Connection.Event / Connection.Event doesn\'t have Connections table / Connection isn\'t found in Connections table.', 2)
-		end
-	else
-		return error('Expected ":" when calling Disconnect, not "." (first arg was not a Connection.', 2)
-	end
-end
-local EventConnect = function(Event, Func)
-	if Func and type(Func) == 'function' then
-		if Event and type(Event) == 'table' and rawget(Event, '__type') == 'event' then
-			if rawget(Event, '__exists') then
-				local Connections = Event.Connections
-				if Connections then
-					local Connection = {
-						__type = 'connection',
-						Func = Func,
-						Disconnect = ConnectionDisconnect,
-						Event = Event,
-						Connected = true,
-					}
-					table.insert(Connections, Connection)
-					return Connection
-				end
-			else
-				return error('Attempt to connect an Event which no longer exists.', 2)
-			end
-		else
-			return error('Expected ":" when calling Connect, not "." (first arg was not an Event.)', 2)
-		end
-	else
-		return error('Expected function for arg 2 when calling Connect, got ' .. tostring(Func), 2)
-	end
-end
-local EventFire = function(Event, ...)
-	local Args = {...}
-	if Event and type(Event) == 'table' and rawget(Event, '__type') == 'event' then
-		if rawget(Event, '__exists') then
-			local Connections = Event.Connections
-			if Connections then
-				for I, Con in next, Connections do
-					if Con and Con.Func and Con.Connected then
-						local Suc, Err = pcall(task.spawn, Con.Func, table.unpack(Args))
-						if not Suc and Err then
-							error('From Event.Fire: ' .. tostring(Err), 3)
-						end
-					end
-				end
-			end
-		else
-			return error('Attempt to fire an Event which no longer exists.', 2)
-		end
-	else
-		return error('Expected ":" when calling Fire, not "." (first arg was not an Event)', 2)
-	end
-end
-function Helper:CreateEvent(info)
-	local Event = Helper:CreateObject{CanDestroy = info.CanDestroy}
-
-	Event.__type = 'event'
-	Event.ClassName = 'Event'
-
-	Event.Connections = {}
-	Event.Connect = EventConnect
-	Event.Fire = EventFire
-
-	for I,V in next, info do
-		Event[I] = V
-	end
-
-	return Event
-end
-
 for Type, DrawingType in next, SupportedObjects do
 	local DefaultProperties = Helper.Properties.Default[Type].Object
 	local Aliases = Helper.Properties.Aliases[Type]
@@ -464,15 +389,15 @@ for Type, DrawingType in next, SupportedObjects do
 		-- 	end
 		-- end
 
-		Holder.Changed = Helper:CreateEvent{CanDestroy = false, Name = tostring(Object) .. '-Changed'}
-		Holder.MouseEnter = Helper:CreateEvent{CanDestroy = false, Name = tostring(Object) .. '-MouseEnter'}
-		Holder.MouseLeave = Helper:CreateEvent{CanDestroy = false, Name = tostring(Object) .. '-MouseLeave'}
-		Holder.MouseButton1Down = Helper:CreateEvent{CanDestroy = false, Name = tostring(Object) .. '-MouseButton1Down'}
-		Holder.MouseButton1Up = Helper:CreateEvent{CanDestroy = false, Name = tostring(Object) .. '-MouseButton1Up'}
-		Holder.MouseButton1Click = Helper:CreateEvent{CanDestroy = false, Name = tostring(Object) .. '-MouseButton1Click'}
-		Holder.MouseButton2Down = Helper:CreateEvent{CanDestroy = false, Name = tostring(Object) .. '-MouseButton2Down'}
-		Holder.MouseButton2Up = Helper:CreateEvent{CanDestroy = false, Name = tostring(Object) .. '-MouseButton2Up'}
-		Holder.MouseButton2Click = Helper:CreateEvent{CanDestroy = false, Name = tostring(Object) .. '-MouseButton2Click'}
+		Holder.Changed = CreateEvent{Name = tostring(Object) .. '-Changed'}
+		Holder.MouseEnter = CreateEvent{Name = tostring(Object) .. '-MouseEnter'}
+		Holder.MouseLeave = CreateEvent{Name = tostring(Object) .. '-MouseLeave'}
+		Holder.MouseButton1Down = CreateEvent{Name = tostring(Object) .. '-MouseButton1Down'}
+		Holder.MouseButton1Up = CreateEvent{Name = tostring(Object) .. '-MouseButton1Up'}
+		Holder.MouseButton1Click = CreateEvent{Name = tostring(Object) .. '-MouseButton1Click'}
+		Holder.MouseButton2Down = CreateEvent{Name = tostring(Object) .. '-MouseButton2Down'}
+		Holder.MouseButton2Up = CreateEvent{Name = tostring(Object) .. '-MouseButton2Up'}
+		Holder.MouseButton2Click = CreateEvent{Name = tostring(Object) .. '-MouseButton2Click'}
 
 
 		Object.__self = Holder
@@ -494,13 +419,16 @@ for Type, DrawingType in next, SupportedObjects do
 					if Expected then
 						if ValidateType(Value, Expected) then
 							local TextObject = Object.__text
+							local SetTextProperty = false
 							if TextObject and string.sub(Index, 1, 4) == 'Text' then
 								if Index == 'Text' then
 									TextObject.Text = Value
+									SetTextProperty = true
 								elseif TextObject[string.sub(Index, 5, -1)] then
 									TextObject[string.sub(Index, 5, -1)] = Value
+									SetTextProperty = true
 								-- elseif Helper.Properties.Expected.TextButton.Object[Index] then
-									
+
 								end
 							end
 							Holder[Alias or Index] = Value
@@ -514,22 +442,27 @@ for Type, DrawingType in next, SupportedObjects do
 								Holder.Changed:Fire(Index, Value)
 							end
 
-							if (Index == 'Position' or Index == 'Size') and TextObject then
-								local ObjectPosition = Object.Position
-								local ObjectSize = Object.Size
+							if TextObject then
+								if Index == 'Position' or Index == 'Size' then
+									local ObjectPosition = Object.Position
+									local ObjectSize = Object.Size
 
-								local LeftX = ObjectPosition.X
-								local CenterX = ObjectPosition.X + ObjectSize.X / 2
-								local RightX = ObjectPosition.X + ObjectSize.X
+									local LeftX = ObjectPosition.X
+									local CenterX = ObjectPosition.X + ObjectSize.X / 2
+									local RightX = ObjectPosition.X + ObjectSize.X
 
-								local TopY = ObjectPosition.Y
-								local CenterY = ObjectPosition.Y + ObjectSize.Y / 2 - TextObject.Size / 2
-								local BottomY = ObjectPosition.Y + ObjectSize.Y - TextObject.Size
+									local TopY = ObjectPosition.Y
+									local CenterY = ObjectPosition.Y + ObjectSize.Y / 2 - TextObject.Size / 2
+									local BottomY = ObjectPosition.Y + ObjectSize.Y - TextObject.Size
 
-								local XAlignment = Object.TextXAlignment
-								local YAlignment = Object.TextYAlignment
+									local XAlignment = Object.TextXAlignment
+									local YAlignment = Object.TextYAlignment
 
-								TextObject.Position = Vector2.new((XAlignment == 'Left' and LeftX) or (XAlignment == 'Center' and CenterX) or (XAlignment == 'Right' and RightX), (YAlignment == 'Top' and TopY) or (YAlignment == 'Center' and CenterY) or (YAlignment == 'Bottom' and BottomY))
+									TextObject.Position = Vector2.new((XAlignment == 'Left' and LeftX) or (XAlignment == 'Center' and CenterX) or (XAlignment == 'Right' and RightX), (YAlignment == 'Top' and TopY) or (YAlignment == 'Center' and CenterY) or (YAlignment == 'Bottom' and BottomY))
+								elseif not SetTextProperty and DefaultDrawingProperties[Index] or Helper.Properties.Expected.Text.Drawing[Index] then
+									print(Index, Value)
+									TextObject[Index] = Value
+								end
 							end
 
 							return true
