@@ -15,6 +15,9 @@
 > - ### \<Event\> (READONLY) MouseButton1Down
 > - ### \<Event\> (READONLY) MouseButton1Up
 > - ### \<Event\> (READONLY) MouseButton1Click
+> - ### \<Event\> (READONLY) MouseButton2Down
+> - ### \<Event\> (READONLY) MouseButton2Up
+> - ### \<Event\> (READONLY) MouseButton2Click
 
 -->
 
@@ -40,6 +43,9 @@
 > - ### \<Event\> (READONLY) MouseButton1Down
 > - ### \<Event\> (READONLY) MouseButton1Up
 > - ### \<Event\> (READONLY) MouseButton1Click
+> - ### \<Event\> (READONLY) MouseButton2Down
+> - ### \<Event\> (READONLY) MouseButton2Up
+> - ### \<Event\> (READONLY) MouseButton2Click
 
 <br><br>
   
@@ -62,6 +68,9 @@
 > - ### \<Event\> (READONLY) MouseButton1Down
 > - ### \<Event\> (READONLY) MouseButton1Up
 > - ### \<Event\> (READONLY) MouseButton1Click
+> - ### \<Event\> (READONLY) MouseButton2Down
+> - ### \<Event\> (READONLY) MouseButton2Up
+> - ### \<Event\> (READONLY) MouseButton2Click
 
 <br><br>
 
@@ -89,6 +98,9 @@
 > - ### \<Event\> (READONLY) MouseButton1Down
 > - ### \<Event\> (READONLY) MouseButton1Up
 > - ### \<Event\> (READONLY) MouseButton1Click
+> - ### \<Event\> (READONLY) MouseButton2Down
+> - ### \<Event\> (READONLY) MouseButton2Up
+> - ### \<Event\> (READONLY) MouseButton2Click
 
 > ## Image
 > - ### \<string\> Name
@@ -109,6 +121,9 @@
 > - ### \<Event\> (READONLY) MouseButton1Down
 > - ### \<Event\> (READONLY) MouseButton1Up
 > - ### \<Event\> (READONLY) MouseButton1Click
+> - ### \<Event\> (READONLY) MouseButton2Down
+> - ### \<Event\> (READONLY) MouseButton2Up
+> - ### \<Event\> (READONLY) MouseButton2Click
 
 > ## Circle
 > - ### \<string\> Name
@@ -131,6 +146,9 @@
 > - ### \<Event\> (READONLY) MouseButton1Down
 > - ### \<Event\> (READONLY) MouseButton1Up
 > - ### \<Event\> (READONLY) MouseButton1Click
+> - ### \<Event\> (READONLY) MouseButton2Down
+> - ### \<Event\> (READONLY) MouseButton2Up
+> - ### \<Event\> (READONLY) MouseButton2Click
 
 > ## Quad
 > - ### \<string\> Name
@@ -153,6 +171,9 @@
 > - ### \<Event\> (READONLY) MouseButton1Down
 > - ### \<Event\> (READONLY) MouseButton1Up
 > - ### \<Event\> (READONLY) MouseButton1Click
+> - ### \<Event\> (READONLY) MouseButton2Down
+> - ### \<Event\> (READONLY) MouseButton2Up
+> - ### \<Event\> (READONLY) MouseButton2Click
 
 > ## Triangle
 > - ### \<string\> Name
@@ -174,3 +195,6 @@
 > - ### \<Event\> (READONLY) MouseButton1Down
 > - ### \<Event\> (READONLY) MouseButton1Up
 > - ### \<Event\> (READONLY) MouseButton1Click
+> - ### \<Event\> (READONLY) MouseButton2Down
+> - ### \<Event\> (READONLY) MouseButton2Up
+> - ### \<Event\> (READONLY) MouseButton2Click
